@@ -5,3 +5,5 @@ __pycache__/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+# CAMELS-MX outputs (data, not code)
+10_outputs/

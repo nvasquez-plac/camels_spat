@@ -9,7 +9,7 @@ shapefile directly: no metadata CSV and no config file.
     BASIN_ID   e.g. MX_22008
     SHAPEFILE  basin shapefile (its HRUs are dissolved into one outline)
     DATA_DIR   folder with the North America datasets (CAMELS-SPAT geospatial_temp)
-    OUT_DIR    writes OUT_DIR/basin_data/BASIN_ID/shapefiles/lumped/ and .../geospatial/
+    OUT_DIR    writes OUT_DIR/BASIN_ID/shapefiles/lumped/ and OUT_DIR/BASIN_ID/geospatial/
 
 Files that already exist are skipped, so a failed job can simply be resubmitted.
 """
@@ -30,7 +30,7 @@ DATASETS = ['worldclim', 'lai', 'forest_height', 'glclu2019', 'modis_land', 'lgr
 
 basin, shapefile, data_dir, out_dir = sys.argv[1:5]
 data_dir = Path(data_dir)
-basin_dir = Path(out_dir) / 'basin_data' / basin
+basin_dir = Path(out_dir) / basin
 
 # 1. Basin outline = CAMELS-SPAT "lumped" shapefile. EPSG:4326, because the clipping buffers in degrees.
 lump_dir = basin_dir / 'shapefiles' / 'lumped'
